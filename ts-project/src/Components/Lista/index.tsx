@@ -1,30 +1,17 @@
-import React from 'react';
 import style from './Lista.module.scss';
+import { ITask } from '../../types/tarefa';
 
-function Lista() {
-	const tasks = [
-		{
-			task: 'React',
-			time: '02:00',
-		},
-		{
-			task: 'TypeScript',
-			time: '01:00',
-		},
-		{
-			task: 'C#',
-			time: '03:30',
-		},
-	];
-
+// Function Component
+function Lista({ tasks }: { tasks: Array<ITask> }) {
+	// estrutura: NomeFuncao({prop, prop1...}: {prop: tipagem da prop, prop1: tipagem da prop1....})
 	return (
 		<aside className={style.listaTarefas}>
 			<h2>Today Studies</h2>
 			<ul>
-				{tasks.map((item, index) => (
+				{tasks.map((item: ITask, index: number) => (
 					<li key={index} className={style.item}>
 						<h3>{item.task}</h3>
-						<p>{item.time}</p>
+						<span>{item.time}</span>
 					</li>
 				))}
 			</ul>
